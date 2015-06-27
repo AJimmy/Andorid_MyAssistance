@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+
+    <!-- 以下控件显示城市天气-->
+    <TextView
+            android:id="@+id/weather_txt_city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="城市"
+            />
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+        <TextView
+                android:id="@+id/weather_txt_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="日期"
+                />
+
+        <TextView
+                android:id="@+id/weather_txt_week"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="星期"
+                />
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+
+        <TextView
+                android:id="@+id/weather_txt_update"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="更新时间"
+                />
+    </LinearLayout>
+
+    <ListView
+            android:id="@+id/list_weather"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+</LinearLayout>

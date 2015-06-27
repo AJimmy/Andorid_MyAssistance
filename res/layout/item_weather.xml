@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+
+    <TextView
+            android:id="@+id/item_weather_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="日期"
+            />
+
+    <TextView
+            android:id="@+id/item_weather_weather"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="天气情况"
+            android:layout_toRightOf="@id/item_weather_date"
+            android:layout_marginLeft="30dp"
+            />
+
+    <TextView
+            android:id="@+id/item_weather_temp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="温度"
+            android:layout_toRightOf="@id/item_weather_weather"
+            android:layout_marginLeft="30dp"
+            />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="风"
+            android:visibility="gone"
+            android:layout_toRightOf="@id/item_weather_temp"/>
+
+</RelativeLayout>
