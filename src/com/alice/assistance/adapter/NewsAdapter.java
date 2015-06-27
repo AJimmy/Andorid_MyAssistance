@@ -31,6 +31,7 @@ public class NewsAdapter extends BaseAdapter {
     private Context mContext;
     private List<News> list;
     ViewHolder holder;
+
     public NewsAdapter(Context mContext, List<News> list) {
         this.mContext = mContext;
         this.list = list;
@@ -73,13 +74,14 @@ public class NewsAdapter extends BaseAdapter {
         holder.subject.setText(list.get(position).getSubject());
         holder.summary.setText(list.get(position).getSummary());
         holder.changed.setText(list.get(position).getChanged().substring(11));
+
         //TODO 图片刷新错位
         String path = NewsFragment.NEWSDIE + list.get(position).getCover();
-        Log.d(TAG, "图片路径："+ path);
+        Log.d(TAG, "图片路径：" + path);
         new NewsImageAsyncTask(new NewsImageAsyncTask.ImageCallBack() {
             @Override
             public void sendImage(Bitmap bitmap) {
-                holder.cover.setImageBitmap(bitmap);
+                    holder.cover.setImageBitmap(bitmap);
             }
         }).execute(path);
         return convertView;

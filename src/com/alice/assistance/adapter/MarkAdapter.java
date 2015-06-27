@@ -19,7 +19,9 @@ import java.util.List;
  * Data: 15-6-27
  */
 public class MarkAdapter extends BaseAdapter {
-    public static final int[] drawable = {0, R.drawable.ic_launcher};
+    public static final int[] drawable = {0, R.drawable.baidu72, R.drawable.sina72,
+            R.drawable.github72, R.drawable.stackoverflow72,
+            R.drawable.ic_launcher, R.drawable.zhihu72};
 
     private Context mContext;
     List<Mark> list;
@@ -63,7 +65,7 @@ public class MarkAdapter extends BaseAdapter {
         return convertView;
     }
 
-    private static  class ViewHolder{
+    private static class ViewHolder {
         ImageView image;
         TextView name;
         TextView url;

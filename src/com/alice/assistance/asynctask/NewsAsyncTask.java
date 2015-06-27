@@ -1,5 +1,7 @@
 package com.alice.assistance.asynctask;
 
+import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.Adapter;
@@ -21,25 +23,30 @@ import java.util.List;
  */
 public class NewsAsyncTask extends AsyncTask<String, Void, List<News>> {
     private Context mContext;
-    private List<News> list;
     private NewsAdapter adapter;
-    private ListView listView;
+    private ProgressDialog dialog;
 
-    public NewsAsyncTask(NewsAdapter adapter, List<News> list, ListView listView) {
+    public NewsAsyncTask(Context mContext, NewsAdapter adapter) {
         this.adapter = adapter;
-        this.list = list;
-        this.listView = listView;
+        this.mContext = mContext;
+        dialog = new ProgressDialog(mContext);
+        dialog.setMessage("正在刷新...");
+    }
+
+    @Override
+    protected void onPreExecute() {
+        super.onPreExecute();
+        dialog.show();
     }
 
     @Override
     protected List<News> doInBackground(String... params) {
         try {
             byte[] arr = HttpTool.getHttpByteArray(params[0]);
-            //TODO 解析网络获取的json，得到List<News>
-            return ParserNewsJsonTool.parserJson(new String(arr, "utf-8"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (JSONException e) {
+            if (arr != null) {
+                return ParserNewsJsonTool.parserJson(new String(arr, "utf-8"));
+            }
+        } catch (IOException | JSONException e) {
             e.printStackTrace();
         }
         return null;
@@ -48,6 +55,7 @@ public class NewsAsyncTask extends AsyncTask<String, Void, List<News>> {
     @Override
     protected void onPostExecute(List<News> newses) {
         super.onPostExecute(newses);
+        dialog.dismiss();
         adapter.addList(newses);
         adapter.notifyDataSetChanged();
     }

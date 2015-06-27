@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="horizontal"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+        >
 
 
     <TextView
@@ -10,31 +11,52 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="日期"
+            android:textColor="#fff"
+            android:textSize="20sp"
             />
 
+    <ImageView
+            android:id="@+id/item_weather_image"
+            android:layout_toRightOf="@+id/item_weather_date"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/ic_launcher"
+            android:layout_marginLeft="30dp"
+            />
+
+
+        <TextView
+                android:id="@+id/item_weather_temp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="温度"
+                android:layout_marginLeft="30dp"
+                android:textColor="#fff"
+                android:layout_alignParentRight="true"
+                android:gravity="right"
+                android:textSize="20sp"
+                />
     <TextView
             android:id="@+id/item_weather_weather"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="天气情况"
-            android:layout_toRightOf="@id/item_weather_date"
+            android:layout_toLeftOf="@id/item_weather_temp"
             android:layout_marginLeft="30dp"
+            android:textColor="#fff"
+            android:gravity="right"
+            android:textSize="20sp"
             />
 
-    <TextView
-            android:id="@+id/item_weather_temp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="温度"
-            android:layout_toRightOf="@id/item_weather_weather"
-            android:layout_marginLeft="30dp"
-            />
 
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="风"
+            android:textColor="#fff"
             android:visibility="gone"
-            android:layout_toRightOf="@id/item_weather_temp"/>
+            android:layout_toRightOf="@id/item_weather_temp"
+            android:textSize="20sp"
+            />
 
 </RelativeLayout>

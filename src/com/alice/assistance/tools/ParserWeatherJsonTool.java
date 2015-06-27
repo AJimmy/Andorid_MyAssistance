@@ -91,7 +91,7 @@ public class ParserWeatherJsonTool {
 
         weather.setUpdate_time(obj1.getString("update_time"));
 
-        Log.d(TAG, weather.toString());
+//        Log.d(TAG, weather.toString());
         return weather;
     }
 }

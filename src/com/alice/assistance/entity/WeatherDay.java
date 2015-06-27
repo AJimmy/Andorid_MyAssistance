@@ -7,17 +7,37 @@ package com.alice.assistance.entity;
  * Data: 15-6-27
  */
 public class WeatherDay {
-    private  String fl;
+    private String date;
+    private String fl;
+    private int imgId;
     private String temp;
     private String weather;
 
     public WeatherDay() {
     }
 
-    public WeatherDay(String fl, String temp, String weather) {
+    public WeatherDay(String date, String fl, int imgId, String temp, String weather) {
+        this.date = date;
         this.fl = fl;
+        this.imgId = imgId;
         this.temp = temp;
         this.weather = weather;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public int getImgId() {
+        return imgId;
+    }
+
+    public void setImgId(int imgId) {
+        this.imgId = imgId;
     }
 
     public String getFl() {

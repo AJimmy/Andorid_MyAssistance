@@ -24,7 +24,7 @@ import com.alice.assistance.asynctask.WeatherAsyncTask;
 public class ListWeatherFragment extends Fragment {
     public static final String TAG = "ListWeatherFragment";
     private FragmentManager manager;
-    private String cityId;
+    private String districtIdStr;
     public static final String WEATHER_DIR = "http://weather.123.duba.net/static/weather_info/";
 
     public ListWeatherFragment() {
@@ -35,9 +35,9 @@ public class ListWeatherFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_list_weather, container, false);
         manager = getActivity().getSupportFragmentManager();
-        cityId = ((WeatherFragment)manager.findFragmentByTag("weather")).getCityId();
+        districtIdStr = ((WeatherFragment)manager.findFragmentByTag("weather")).getDistrictIdStr();
 
-        String path = WEATHER_DIR + cityId+".html";
+        String path = WEATHER_DIR + districtIdStr +".html";
         // 执行异步任务，网络获取json字符串，并解析
         new WeatherAsyncTask(getActivity(), view).execute(path);
         return view;
@@ -49,7 +49,7 @@ public class ListWeatherFragment extends Fragment {
     public void test(){
         WeatherFragment weatherFragment = (WeatherFragment)manager.findFragmentByTag("weather");
         if (weatherFragment != null) {
-            Log.d(TAG, "ListWeatherFragment id   " + weatherFragment.getCityId());
+            Log.d(TAG, "ListWeatherFragment id   " + weatherFragment.getDistrictIdStr());
         }
     }
 }

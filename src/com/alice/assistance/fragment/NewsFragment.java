@@ -49,7 +49,7 @@ public class NewsFragment extends Fragment implements AbsListView.OnScrollListen
         listView = (ListView) view.findViewById(R.id.list_news);
         listView.setAdapter(adapter);
 
-        new NewsAsyncTask(adapter, list, listView).execute(NEWPATH + pageIndex++ + NEWPATHSUB);
+        new NewsAsyncTask(getActivity(), adapter).execute(NEWPATH + pageIndex++ + NEWPATHSUB);
 
         listView.setOnScrollListener(this);
 
@@ -60,7 +60,7 @@ public class NewsFragment extends Fragment implements AbsListView.OnScrollListen
     public void onScrollStateChanged(AbsListView view, int scrollState) {
         if (scrollState == SCROLL_STATE_IDLE && isBottom){
             Toast.makeText(getActivity(), "正在加载...", Toast.LENGTH_SHORT).show();
-            new NewsAsyncTask(adapter, list, listView).execute(NEWPATH + pageIndex++ + NEWPATHSUB);
+            new NewsAsyncTask(getActivity(), adapter).execute(NEWPATH + pageIndex++ + NEWPATHSUB);
         }
     }
 

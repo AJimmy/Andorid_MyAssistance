@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+        >
 
     <!-- 新闻ListView 中的item条目-->
     <ImageView
@@ -18,6 +19,8 @@
             android:layout_height="wrap_content"
             android:singleLine="true"
             android:text="title"
+            android:textSize="15sp"
+            android:textColor="#fff"
             android:layout_toRightOf="@id/item_news_cover"
             android:layout_alignTop="@id/item_news_cover"
             android:layout_marginLeft="20dp"
@@ -28,15 +31,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="更新时间"
+            android:textColor="#fff"
             android:layout_alignParentRight="true"
             android:layout_marginLeft="10dp"
             />
+
     <TextView
             android:id="@+id/item_news_summary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/item_news_subject"
             android:layout_marginTop="5dp"
+            android:textColor="#fff"
             android:layout_alignLeft="@id/item_news_subject"
             android:text="summary"
             />
